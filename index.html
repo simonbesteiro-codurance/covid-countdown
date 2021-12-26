@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="https://www.parkcastellar.com/wp-content/uploads/covid-icon-home-11-1.png">
+<title>Free Simon countdown</title>
+</head>
+<body style="display: flex; flex-direction: column;align-items: center; height: 100vh;">
+    <h1 style="margin: 60px;">Simons release countdown</h1>
+    <div style="display: flex;">
+        <img src="https://tenor.com/es/ver/jesus-bailando-the-simpsons-gif-10968092.gif" alt="shreck-vailador">
+        <p id="countdown" style="font-size: 40px; margin: auto; text-align: justify;"></p>
+        <img src="https://tenor.com/view/jesus-bailando-the-simpsons-gif-10968092.gif" alt="shreck-vailador">
+    </div>
+    <div style="display: flex;">
+        <img src="https://media.giphy.com/media/LCg0XtmJ5qrjq/giphy.gif" alt="shreck-vailador">
+    </div>
+</body>
+
+</html>
+<script>
+var end = new Date('1/05/2022 0:00 AM');
+
+    var _second = 1000;
+    var _minute = _second * 60;
+    var _hour = _minute * 60;
+    var _day = _hour * 24;
+    var timer;
+
+    function showRemaining() {
+        var now = new Date();
+        var distance = end - now;
+        if (distance < 0) {
+
+            clearInterval(timer);
+            document.getElementById('countdown').innerHTML = 'EXPIRED!';
+
+            return;
+        }
+        var days = Math.floor(distance / _day);
+        var hours = Math.floor((distance % _day) / _hour);
+        var minutes = Math.floor((distance % _hour) / _minute);
+        var seconds = Math.floor((distance % _minute) / _second);
+
+        document.getElementById('countdown').innerHTML = days + ' dias, ';
+        document.getElementById('countdown').innerHTML += hours + ' horas, ';
+        document.getElementById('countdown').innerHTML += minutes + ' minutos y ';
+        document.getElementById('countdown').innerHTML += seconds + ' segundos';
+    }
+
+    timer = setInterval(showRemaining, 1000);
+</script>
